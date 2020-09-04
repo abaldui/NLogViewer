@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.formSkinMain = new FlatUI.FormSkin();
+            this.flatMini1 = new FlatUI.FlatMini();
             this.flatClose1 = new FlatUI.FlatClose();
             this.flatTabControlMain = new FlatUI.FlatTabControl();
             this.tabPageDetails = new System.Windows.Forms.TabPage();
@@ -37,6 +38,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.flatTextBoxDetails = new FlatUI.FlatTextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.flatCheckBoxIsGroup = new FlatUI.FlatCheckBox();
             this.flatCheckBoxIsFatal = new FlatUI.FlatCheckBox();
             this.flatCheckBoxIsError = new FlatUI.FlatCheckBox();
             this.flatCheckBoxIsWarn = new FlatUI.FlatCheckBox();
@@ -49,7 +51,6 @@
             this.flatTextBoxPath = new FlatUI.FlatTextBox();
             this.flatButtonPath = new FlatUI.FlatButton();
             this.openFileDialogMain = new System.Windows.Forms.OpenFileDialog();
-            this.flatCheckBoxIsGroup = new FlatUI.FlatCheckBox();
             this.formSkinMain.SuspendLayout();
             this.flatTabControlMain.SuspendLayout();
             this.tabPageDetails.SuspendLayout();
@@ -60,9 +61,11 @@
             // 
             // formSkinMain
             // 
+            this.formSkinMain.AllowDrop = true;
             this.formSkinMain.BackColor = System.Drawing.Color.White;
             this.formSkinMain.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
             this.formSkinMain.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(58)))), ((int)(((byte)(60)))));
+            this.formSkinMain.Controls.Add(this.flatMini1);
             this.formSkinMain.Controls.Add(this.flatClose1);
             this.formSkinMain.Controls.Add(this.flatTabControlMain);
             this.formSkinMain.Controls.Add(this.flatStatusBarMain);
@@ -79,16 +82,29 @@
             this.formSkinMain.TabIndex = 0;
             this.formSkinMain.Text = "NLogViewer";
             // 
+            // flatMini1
+            // 
+            this.flatMini1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.flatMini1.BackColor = System.Drawing.Color.White;
+            this.flatMini1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            this.flatMini1.Font = new System.Drawing.Font("Marlett", 12F);
+            this.flatMini1.Location = new System.Drawing.Point(1226, 12);
+            this.flatMini1.Name = "flatMini1";
+            this.flatMini1.Size = new System.Drawing.Size(18, 18);
+            this.flatMini1.TabIndex = 6;
+            this.flatMini1.Text = "flatMini1";
+            this.flatMini1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            // 
             // flatClose1
             // 
             this.flatClose1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.flatClose1.BackColor = System.Drawing.Color.White;
             this.flatClose1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.flatClose1.Font = new System.Drawing.Font("Marlett", 10F);
-            this.flatClose1.Location = new System.Drawing.Point(1250, 13);
+            this.flatClose1.Location = new System.Drawing.Point(1250, 12);
             this.flatClose1.Name = "flatClose1";
             this.flatClose1.Size = new System.Drawing.Size(18, 18);
-            this.flatClose1.TabIndex = 3;
+            this.flatClose1.TabIndex = 5;
             this.flatClose1.Text = "flatClose1";
             this.flatClose1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             // 
@@ -107,7 +123,7 @@
             this.flatTabControlMain.SelectedIndex = 0;
             this.flatTabControlMain.Size = new System.Drawing.Size(1280, 881);
             this.flatTabControlMain.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.flatTabControlMain.TabIndex = 2;
+            this.flatTabControlMain.TabIndex = 3;
             // 
             // tabPageDetails
             // 
@@ -125,6 +141,7 @@
             // 
             // dataGridViewDatas
             // 
+            this.dataGridViewDatas.AllowDrop = true;
             this.dataGridViewDatas.AllowUserToAddRows = false;
             this.dataGridViewDatas.AllowUserToDeleteRows = false;
             this.dataGridViewDatas.AllowUserToResizeRows = false;
@@ -139,6 +156,7 @@
             this.dataGridViewDatas.Size = new System.Drawing.Size(1266, 558);
             this.dataGridViewDatas.TabIndex = 22;
             this.dataGridViewDatas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewDatas_CellClick);
+            this.dataGridViewDatas.DragEnter += new System.Windows.Forms.DragEventHandler(this.DataGridViewDatas_DragEnter);
             // 
             // panel4
             // 
@@ -178,6 +196,22 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1266, 50);
             this.panel3.TabIndex = 24;
+            // 
+            // flatCheckBoxIsGroup
+            // 
+            this.flatCheckBoxIsGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.flatCheckBoxIsGroup.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            this.flatCheckBoxIsGroup.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.flatCheckBoxIsGroup.Checked = false;
+            this.flatCheckBoxIsGroup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.flatCheckBoxIsGroup.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.flatCheckBoxIsGroup.Location = new System.Drawing.Point(1135, 12);
+            this.flatCheckBoxIsGroup.Name = "flatCheckBoxIsGroup";
+            this.flatCheckBoxIsGroup.Options = FlatUI.FlatCheckBox._Options.Style1;
+            this.flatCheckBoxIsGroup.Size = new System.Drawing.Size(126, 22);
+            this.flatCheckBoxIsGroup.TabIndex = 5;
+            this.flatCheckBoxIsGroup.Text = "СГРУПИРОВАТЬ";
+            this.flatCheckBoxIsGroup.CheckedChanged += new FlatUI.FlatCheckBox.CheckedChangedEventHandler(this.FlatCheckBoxIsGroup_CheckedChanged);
             // 
             // flatCheckBoxIsFatal
             // 
@@ -291,7 +325,7 @@
             this.flatStatusBarMain.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
             this.flatStatusBarMain.ShowTimeDate = false;
             this.flatStatusBarMain.Size = new System.Drawing.Size(1280, 23);
-            this.flatStatusBarMain.TabIndex = 1;
+            this.flatStatusBarMain.TabIndex = 4;
             this.flatStatusBarMain.TextColor = System.Drawing.Color.White;
             // 
             // panel1
@@ -303,24 +337,25 @@
             this.panel1.Location = new System.Drawing.Point(0, 50);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1280, 70);
-            this.panel1.TabIndex = 0;
+            this.panel1.TabIndex = 1;
             // 
             // flatTextBoxPath
             // 
+            this.flatTextBoxPath.AllowDrop = true;
             this.flatTextBoxPath.BackColor = System.Drawing.Color.Transparent;
             this.flatTextBoxPath.FocusOnHover = false;
             this.flatTextBoxPath.Location = new System.Drawing.Point(12, 19);
             this.flatTextBoxPath.MaxLength = 32767;
             this.flatTextBoxPath.Multiline = false;
             this.flatTextBoxPath.Name = "flatTextBoxPath";
-            this.flatTextBoxPath.PlaceHolder = "Путь к файлу";
+            this.flatTextBoxPath.PlaceHolder = "";
             this.flatTextBoxPath.ReadOnly = false;
             this.flatTextBoxPath.Size = new System.Drawing.Size(1168, 29);
             this.flatTextBoxPath.TabIndex = 22;
-            this.flatTextBoxPath.Text = "Путь к файлу";
             this.flatTextBoxPath.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.flatTextBoxPath.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.flatTextBoxPath.UseSystemPasswordChar = false;
+            this.flatTextBoxPath.DragEnter += new System.Windows.Forms.DragEventHandler(this.FlatTextBoxPath_DragEnter);
             // 
             // flatButtonPath
             // 
@@ -337,32 +372,15 @@
             this.flatButtonPath.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.flatButtonPath.Click += new System.EventHandler(this.FlatButtonPath_Click);
             // 
-            // flatCheckBoxIsGroup
-            // 
-            this.flatCheckBoxIsGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
-            this.flatCheckBoxIsGroup.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-            this.flatCheckBoxIsGroup.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.flatCheckBoxIsGroup.Checked = false;
-            this.flatCheckBoxIsGroup.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.flatCheckBoxIsGroup.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.flatCheckBoxIsGroup.Location = new System.Drawing.Point(1135, 12);
-            this.flatCheckBoxIsGroup.Name = "flatCheckBoxIsGroup";
-            this.flatCheckBoxIsGroup.Options = FlatUI.FlatCheckBox._Options.Style1;
-            this.flatCheckBoxIsGroup.Size = new System.Drawing.Size(126, 22);
-            this.flatCheckBoxIsGroup.TabIndex = 5;
-            this.flatCheckBoxIsGroup.Text = "СГРУПИРОВАТЬ";
-            this.flatCheckBoxIsGroup.CheckedChanged += new FlatUI.FlatCheckBox.CheckedChangedEventHandler(this.FlatCheckBoxIsGroup_CheckedChanged);
-            // 
             // Main
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1280, 1024);
             this.Controls.Add(this.formSkinMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(1280, 1024);
-            this.MinimumSize = new System.Drawing.Size(1280, 1024);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -382,25 +400,26 @@
 
         private FlatUI.FormSkin formSkinMain;
         private System.Windows.Forms.Panel panel1;
-        private FlatUI.FlatStatusBar flatStatusBarMain;
-        private FlatUI.FlatButton flatButtonPath;
         private FlatUI.FlatTextBox flatTextBoxPath;
+        private FlatUI.FlatButton flatButtonPath;
         private FlatUI.FlatTabControl flatTabControlMain;
         private System.Windows.Forms.TabPage tabPageDetails;
-        private System.Windows.Forms.TabPage tabPageSolving;
-        private FlatUI.FlatClose flatClose1;
         private System.Windows.Forms.DataGridView dataGridViewDatas;
+        private System.Windows.Forms.Panel panel4;
         private FlatUI.FlatTextBox flatTextBoxDetails;
-        private System.Windows.Forms.TabPage tabPageDiagram;
         private System.Windows.Forms.Panel panel3;
-        private FlatUI.FlatCheckBox flatCheckBoxIsDebug;
-        private FlatUI.FlatCheckBox flatCheckBoxIsWarn;
-        private FlatUI.FlatCheckBox flatCheckBoxIsInfo;
+        private FlatUI.FlatCheckBox flatCheckBoxIsGroup;
         private FlatUI.FlatCheckBox flatCheckBoxIsFatal;
         private FlatUI.FlatCheckBox flatCheckBoxIsError;
-        private System.Windows.Forms.Panel panel4;
+        private FlatUI.FlatCheckBox flatCheckBoxIsWarn;
+        private FlatUI.FlatCheckBox flatCheckBoxIsInfo;
+        private FlatUI.FlatCheckBox flatCheckBoxIsDebug;
+        private System.Windows.Forms.TabPage tabPageDiagram;
+        private System.Windows.Forms.TabPage tabPageSolving;
         private System.Windows.Forms.OpenFileDialog openFileDialogMain;
-        private FlatUI.FlatCheckBox flatCheckBoxIsGroup;
+        private FlatUI.FlatStatusBar flatStatusBarMain;
+        private FlatUI.FlatMini flatMini1;
+        private FlatUI.FlatClose flatClose1;
     }
 }
 

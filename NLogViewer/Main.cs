@@ -1,4 +1,4 @@
-﻿using CommonWrapper;
+﻿using CommonHelper;
 using NLogViewer.Domain;
 using System;
 using System.Collections.Generic;
@@ -27,7 +27,7 @@ namespace NLogViewer
         {
             InitializeComponent();
 
-            formSkinMain.Text = $"{Application.ProductName} 0.1";
+            this.Text = formSkinMain.Text = $"{Application.ProductName} 0.1";
 
             datas = new List<Data>();
         }
@@ -42,13 +42,6 @@ namespace NLogViewer
             {
                 updateStatus(ex: ex);
             }
-        }
-
-        private void FlatButtonStop_Click(object sender, EventArgs e)
-        {
-            updateStatus("Завершение работы");
-
-            isCanceled = true;
         }
 
         private void FlatButtonPath_Click(object sender, EventArgs e)
@@ -117,6 +110,18 @@ namespace NLogViewer
 
             refreshDatas(datas.ToList());
         }
+        
+        private void FlatTextBoxPath_DragEnter(object sender, DragEventArgs e)
+        {
+            var paths = e.Data.GetData(DataFormats.FileDrop) as string[];
+            if (paths != null && paths.Any())
+            {
+                var path = paths.FirstOrDefault();
+                flatTextBoxPath.Text = path;
+
+                doWork(flatTextBoxPath.Text);
+            }
+        }
 
         private void DataGridViewDatas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -145,6 +150,18 @@ namespace NLogViewer
                 {
                     updateStatus(ex: ex);
                 }
+            }
+        }
+        
+        private void DataGridViewDatas_DragEnter(object sender, DragEventArgs e)
+        {
+            var paths = e.Data.GetData(DataFormats.FileDrop) as string[];
+            if (paths != null && paths.Any())
+            {
+                var path = paths.FirstOrDefault();
+                flatTextBoxPath.Text = path;
+
+                doWork(flatTextBoxPath.Text);
             }
         }
 
@@ -312,12 +329,12 @@ namespace NLogViewer
         {
             formSkinMain.Invoke((MethodInvoker)delegate
             {
-                dataGridViewDatas.DataGridView_Init(ControlExtensions.DataGridStyles.MonoFlatDark);
+                dataGridViewDatas.FlatUI_Init(DataGridStyles.MonoFlatDark);
                 dataGridViewDatas.DataSource = new List<Data>();
 
                 foreach (DataGridViewColumn column in dataGridViewDatas.Columns)
                 {
-                    string description = ControlExtensions.GetDescription<Data>(column.Name);
+                    string description = Extensions.GetDescription<Data>(column.Name);
                     if (!String.IsNullOrEmpty(description))
                     {
                         column.HeaderText = description;

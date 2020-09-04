@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLogViewer", "NLogViewer\NLogViewer.csproj", "{406F0C0A-5B82-4B75-9AAF-144CA518D1B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLogViewer", "NLogViewer\NLogViewer.csproj", "{65B967A3-35FD-48B0-B9FC-36EE9C2A4147}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{406F0C0A-5B82-4B75-9AAF-144CA518D1B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{406F0C0A-5B82-4B75-9AAF-144CA518D1B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{406F0C0A-5B82-4B75-9AAF-144CA518D1B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{406F0C0A-5B82-4B75-9AAF-144CA518D1B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65B967A3-35FD-48B0-B9FC-36EE9C2A4147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65B967A3-35FD-48B0-B9FC-36EE9C2A4147}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65B967A3-35FD-48B0-B9FC-36EE9C2A4147}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65B967A3-35FD-48B0-B9FC-36EE9C2A4147}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
